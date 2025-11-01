@@ -1,5 +1,22 @@
-#count number of student with "A" grade in the following tuple
+dictionary={}
+dictionary.update({"math":78})
+dictionary.update({"science":88})
+dictionary.update({"english":90})
+print(dictionary)
 
-tup=("c","D","A","A","B","B","A")
-print(tup.count("A"))
-print(tup)
+
+#or
+
+marks={}
+
+x=int(input("enter math: "))
+marks.update({"math" :x})
+
+
+y=int(input("enter science: "))
+marks.update({"science" :y})
+
+z=int(input("enter english: "))
+marks.update({"english" :z})
+
+print(marks)
