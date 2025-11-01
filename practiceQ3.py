@@ -1,7 +1,5 @@
-#even or odd
+#count number of student with "A" grade in the following tuple
 
-num=int(input("Enter a number: "))
-if(num%2==0):
-    print("Number is even")
-else:
-    print("Number is odd")
+tup=("c","D","A","A","B","B","A")
+print(tup.count("A"))
+print(tup)
