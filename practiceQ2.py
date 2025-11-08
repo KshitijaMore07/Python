@@ -1,5 +1,6 @@
-subjects={
-"python","java","c++","python","JS","java",
-"python","java","c++","c"
-    }
-print(len(subjects))
+#print fron 100 to 1
+
+i=100
+while i>=1:
+    print(i)
+    i-=1

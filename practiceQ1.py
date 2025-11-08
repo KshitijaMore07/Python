@@ -1,8 +1,6 @@
-#stores values in dictionary:
+#print no from 1 to 100
 
-things={
-"table" : ["a piece of furniture"," list of facts & figures"],
-"cat" : "a small animal"
-    }
-
-print(things)
+i=1
+while i<=100:
+    print(i)
+    i+=1

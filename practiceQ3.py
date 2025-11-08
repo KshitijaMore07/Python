@@ -1,22 +1,8 @@
-dictionary={}
-dictionary.update({"math":78})
-dictionary.update({"science":88})
-dictionary.update({"english":90})
-print(dictionary)
+#print the multiplication table of a number n=3
 
+i=1
+n=3
+while i<=10:
+    print(n*i)
+    i+=1
 
-#or
-
-marks={}
-
-x=int(input("enter math: "))
-marks.update({"math" :x})
-
-
-y=int(input("enter science: "))
-marks.update({"science" :y})
-
-z=int(input("enter english: "))
-marks.update({"english" :z})
-
-print(marks)
