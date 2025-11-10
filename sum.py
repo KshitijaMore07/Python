@@ -1,9 +1,14 @@
-#Sum of two numbers
+def calc_sum(a,b):
+    sum=a+b
+    print(sum)
+    return sum
 
-a=int(input("enter a :"))
+calc_sum(5, 10)
 
-b=int(input("enter b :"))
+#more lines of code
 
+calc_sum(2, 10)
 
+#more lines of code
 
-print("c=", a + b)
+calc_sum(12, 17)

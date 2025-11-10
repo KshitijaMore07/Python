@@ -1,6 +1,9 @@
-#WAP to input 2 floating point numbers & print their average
+#average of 3 numbers
 
-a=float(input("enter first: "))
-b=float(input("enter second: "))
+def calc_avg(a, b, c):
+    sum=a+b+c
+    avg=sum/3
+    print(avg)
+    return avg
 
-print("avg =", (a+b)/2)
+calc_avg(1, 2, 3)
