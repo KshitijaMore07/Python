@@ -1,0 +1,4 @@
+d = {}
+for i in range(3):
+    d[i] = i * i
+print(d)
