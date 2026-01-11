@@ -1,0 +1,4 @@
+keys = [1, 2, 3]
+d = dict.fromkeys(keys, 0)
+d[1] = 5
+print(d)
