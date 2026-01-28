@@ -1,0 +1,11 @@
+class Person:
+    def speak(self):
+        print("Person speaks")
+
+class Doctor(Person):
+    def treat(self):
+        print("Doctor treats patients")
+
+d = Doctor()
+d.speak()
+d.treat()
