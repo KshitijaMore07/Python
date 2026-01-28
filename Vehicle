@@ -1,0 +1,11 @@
+class Vehicle:
+    def start(self):
+        print("Vehicle started")
+
+class Scooter(Vehicle):
+    def ride(self):
+        print("Scooter is running")
+
+s = Scooter()
+s.start()
+s.ride()
