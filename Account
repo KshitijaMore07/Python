@@ -1,0 +1,11 @@
+class Account:
+    def open_account(self):
+        print("Account opened")
+
+class UserAccount(Account):
+    def show_details(self):
+        print("User account details")
+
+u = UserAccount()
+u.open_account()
+u.show_details()
