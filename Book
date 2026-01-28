@@ -1,0 +1,11 @@
+class Book:
+    def read(self):
+        print("Reading book")
+
+class EBook(Book):
+    def download(self):
+        print("Downloading ebook")
+
+e = EBook()
+e.read()
+e.download()
