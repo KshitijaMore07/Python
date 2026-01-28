@@ -1,0 +1,11 @@
+class Machine:
+    def start(self):
+        print("Machine started")
+
+class WashingMachine(Machine):
+    def wash(self):
+        print("Washing clothes")
+
+w = WashingMachine()
+w.start()
+w.wash()
