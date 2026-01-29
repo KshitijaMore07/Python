@@ -1,0 +1,10 @@
+class Bank:
+    def deposit(self, amount):
+        print("Deposited:", amount)
+
+    def withdraw(self, amount):
+        print("Withdrawn:", amount)
+
+b = Bank()
+b.deposit(1000)
+b.withdraw(500)
