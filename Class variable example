@@ -1,0 +1,8 @@
+class College:
+    college_name = "Fergusson College"
+
+    def show(self):
+        print(College.college_name)
+
+c = College()
+c.show()
