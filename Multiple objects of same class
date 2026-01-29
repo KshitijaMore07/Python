@@ -1,0 +1,9 @@
+class Mobile:
+    def show(self, brand):
+        print("Brand:", brand)
+
+m1 = Mobile()
+m2 = Mobile()
+
+m1.show("Samsung")
+m2.show("Apple")
