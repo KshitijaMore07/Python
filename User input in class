@@ -1,0 +1,11 @@
+class Product:
+    def get(self):
+        self.name = input("Enter product name: ")
+        self.price = int(input("Enter price: "))
+
+    def show(self):
+        print(self.name, self.price)
+
+p = Product()
+p.get()
+p.show()
