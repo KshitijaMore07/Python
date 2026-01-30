@@ -1,0 +1,13 @@
+import random
+
+actions = ["left", "right"]
+reward = 0
+
+for i in range(10):
+    action = random.choice(actions)
+    if action == "right":
+        reward += 1
+    else:
+        reward -= 1
+
+print("Final Reward:", reward)
