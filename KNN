@@ -1,0 +1,10 @@
+from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
+
+X = np.array([[35], [50], [75], [90]])
+y = ["Fail", "Pass", "Pass", "Pass"]
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X, y)
+
+print(model.predict([[60]]))
