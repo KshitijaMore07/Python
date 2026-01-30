@@ -1,0 +1,9 @@
+from scipy.cluster.hierarchy import linkage, fcluster
+import numpy as np
+
+X = np.array([[1,2], [2,3], [5,8], [8,8]])
+
+Z = linkage(X, method='ward')
+clusters = fcluster(Z, t=2, criterion='maxclust')
+
+print(clusters)
