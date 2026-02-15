@@ -1,0 +1,28 @@
+from collections import deque
+
+def bfs(jug1, jug2, target):
+    visited = set()
+    queue = deque([(0, 0)])
+
+    while queue:
+        x, y = queue.popleft()
+        if (x, y) in visited:
+            continue
+
+        print((x, y))
+        visited.add((x, y))
+
+        if x == target or y == target:
+            print("Target achieved")
+            return
+
+        queue.extend([
+            (jug1, y),       # Fill jug1
+            (x, jug2),       # Fill jug2
+            (0, y),          # Empty jug1
+            (x, 0),          # Empty jug2
+            (min(x+y, jug1), max(0, y-(jug1-x))),  # Pour jug2 → jug1
+            (max(0, x-(jug2-y)), min(x+y, jug2))   # Pour jug1 → jug2
+        ])
+
+bfs(4, 3, 2)
