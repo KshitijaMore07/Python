@@ -1,0 +1,24 @@
+def dfs(jug1, jug2, target, x=0, y=0, visited=None):
+    if visited is None:
+        visited = set()
+
+    if (x, y) in visited:
+        return False
+
+    print((x, y))
+    visited.add((x, y))
+
+    if x == target or y == target:
+        print("Target achieved")
+        return True
+
+    return (dfs(jug1, jug2, target, jug1, y, visited) or
+            dfs(jug1, jug2, target, x, jug2, visited) or
+            dfs(jug1, jug2, target, 0, y, visited) or
+            dfs(jug1, jug2, target, x, 0, visited) or
+            dfs(jug1, jug2, target,
+                min(x+y, jug1), max(0, y-(jug1-x)), visited) or
+            dfs(jug1, jug2, target,
+                max(0, x-(jug2-y)), min(x+y, jug2), visited))
+
+dfs(4, 3, 2)
