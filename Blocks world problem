@@ -1,0 +1,25 @@
+def heuristic(state, goal):
+    return sum(1 for i in range(len(state)) if state[i] == goal[i])
+
+def simple_hill_climbing(start, goal):
+    current = start
+    while True:
+        neighbors = []
+        for i in range(len(current)):
+            for j in range(len(current)):
+                if i != j:
+                    new = list(current)
+                    new[i], new[j] = new[j], new[i]
+                    neighbors.append(tuple(new))
+
+        best = max(neighbors, key=lambda x: heuristic(x, goal))
+        if heuristic(best, goal) <= heuristic(current, goal):
+            break
+        current = best
+        print(current)
+    return current
+
+start = ('A', 'B', 'C')
+goal = ('C', 'B', 'A')
+
+print("Final State:", simple_hill_climbing(start, goal))
