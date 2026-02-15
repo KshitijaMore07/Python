@@ -1,0 +1,41 @@
+import heapq
+
+goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+
+def heuristic(state):
+    return sum(1 for i in range(9) if state[i] != 0 and state[i] != goal[i])
+
+def get_neighbors(state):
+    neighbors = []
+    idx = state.index(0)
+    moves = [(-1,0),(1,0),(0,-1),(0,1)]
+    row, col = divmod(idx, 3)
+
+    for dr, dc in moves:
+        r, c = row + dr, col + dc
+        if 0 <= r < 3 and 0 <= c < 3:
+            new = list(state)
+            new[idx], new[r*3+c] = new[r*3+c], new[idx]
+            neighbors.append(tuple(new))
+    return neighbors
+
+def a_star(start):
+    pq = []
+    heapq.heappush(pq, (heuristic(start), 0, start))
+    visited = set()
+
+    while pq:
+        f, g, state = heapq.heappop(pq)
+        print(state)
+
+        if state == goal:
+            print("Goal reached")
+            return
+
+        visited.add(state)
+        for neighbor in get_neighbors(state):
+            if neighbor not in visited:
+                heapq.heappush(pq, (g + 1 + heuristic(neighbor), g + 1, neighbor))
+
+start = (1, 2, 3, 4, 0, 6, 7, 5, 8)
+a_star(start)
