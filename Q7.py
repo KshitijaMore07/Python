@@ -1,8 +1,7 @@
-a=float(input("Enter first number:"))
-
-b=float(input("Enter second number:"))
-
-c=float(input("Enter third number:"))
-
-average=(a+b+c)/3
-print("Average is:",average)
+def multiply(a,*args):
+    product=a
+    for num in args:
+        product*=num
+    return product
+print(multiply(2,3,4))
+print(multiply(5))

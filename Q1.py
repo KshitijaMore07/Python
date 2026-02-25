@@ -1,12 +1,4 @@
-name="kshitija"
-age="21"
-height=5.1
-is_student=True
-print(name,type(name))
-
-print(age,type(age))
-
-print(height,type(height))
-
-print(is_student,type(is_student))
-
+def area_of_rectangle(length,width):
+    return length*width
+print(area_of_rectangle(5,3))
+print(area_of_rectangle(10,2))

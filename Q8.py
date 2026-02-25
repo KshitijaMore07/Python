@@ -1,12 +1,3 @@
-value=float(input("Enter temperature value:"))
-
-unit=input("Enter unit(C for Celcius,F for Fahrenheit):").upper()
-
-if unit=='C':
-    fahrenheit=(value*9/5)+32
-    print(f"{value}C={fahrenheit}F")
-elif unit=='F':
-    celcius=(value-32)*5/9
-    print(f"{value}F={celcius}C")
-else:
-    print("Invalid unit")
+my_list=[1,2,3,4,5,6,7,8,9,10]
+sub_list=my_list[::2]
+print(sub_list)

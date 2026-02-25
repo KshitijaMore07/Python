@@ -1,6 +1,9 @@
-name=input("Enter your name:")
-
-age=input("Enter your age:")
-
-print(f"Hello,{name}! You are {age} years old.")
-
+def count_vowels(s):
+    vowels="aeiou"
+    s=s.lower()
+    count=0
+    for char in s:
+        if char in vowels:
+            count+=1
+        return count
+    print(count_vowels("Hello world"))

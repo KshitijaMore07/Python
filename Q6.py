@@ -1,8 +1,6 @@
-principle=float(input("Enter the principle amount:"))
-
-rate=float(input("Enter the rate of interest:"))
-
-time=float(input("Enter the time period(in years):"))
-
-simple_interest=(principle*rate*time)/100
-print("simple Interest is:",simple_interest)
+def reverse_string(s):
+    reversed_str=" "
+    for char in s:
+        reversed_str=char+reversed_str
+    return reversed_str
+print(reverse_string("hello"))
