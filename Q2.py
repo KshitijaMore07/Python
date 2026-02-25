@@ -1,5 +1,9 @@
-import datetime
-def current_datetime():
-    return
-datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-print(current_datetime())
+import re
+
+mobile=input("Enter mobile number:")
+pattern=r'^[6-9]\d{9}$'
+
+if re.match(pattern, mobile):
+    print("Valid Indian Mobile Number")
+else:
+    print("Inavlid Mobile Number")

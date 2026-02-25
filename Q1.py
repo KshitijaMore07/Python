@@ -1,6 +1,8 @@
-import math
-def area_of_circle(radius):
-    return math.pi*radius*radius
+import re
+email=input("Enter student email:")
+pattern=r'^[a-zA-Z0-9._%+-]+@college\.edu$'
 
-radius=1
-print("Area of circle:",area_of_circle(radius))
+if re.match(pattern, email):
+    print("Valid Student Email")
+else:
+    print("Invalid Student Email")

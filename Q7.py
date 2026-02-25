@@ -1,3 +1,10 @@
-def add_lists(list1,list2):
-    return list(map(lambda x,y:x+y,list1,list2))
-print(add_lists([1,2],[3,4]))
+import re
+
+msg=input("Enter chat message")
+
+hashtags=re.findall(r'#\w+',msg)
+
+mentions=re.findall(r'@\w+',msg)
+
+print("Hashtags:",hashtags)
+print("Mentions:",mentions)

@@ -1,3 +1,8 @@
-starts_with_A=lambda s:s[0].lower()=='a'
-print(starts_with_A("Apple"))
-print(starts_with_A("Banana"))
+import re
+pan=input("Enter PAN number:")
+pattern=r'^[A-Z]{5}[0-9]{4}[A-Z]$'
+
+if re.match(pattern, pan):
+    print("Valid PAN Number")
+else:
+    print("Invalid PAN Number")

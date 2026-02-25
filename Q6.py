@@ -1,3 +1,6 @@
-def round_to_one(lst):
-    return list(map(lambda x:round(x,1),lst))
-print(round_to_one([3.14159,2.71828,1.61803]))
+import re
+text=input("Enter text with numbers: ")
+
+numbers=re.findall(r'\d+',text)
+
+print("External Numbers:", numbers)

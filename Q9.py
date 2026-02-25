@@ -1,5 +1,6 @@
-my_dict={"name":"Kshitija", "age":22,"city":"Pune","Cource":"MSC(CS)","year":2025}
-my_dict["college"]="Fergusson College"
-my_dict["city"]="Mumbai"
-del my_dict["age"]
-print(my_dict)
+import re
+text=input("Enter string with delimiters(,;space):")
+
+result=re.split(r'[;,\s]\s*',text)
+
+print("Split Result:",result)
