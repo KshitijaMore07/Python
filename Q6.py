@@ -1,6 +1,3 @@
-def reverse_string(s):
-    reversed_str=" "
-    for char in s:
-        reversed_str=char+reversed_str
-    return reversed_str
-print(reverse_string("hello"))
+def round_to_one(lst):
+    return list(map(lambda x:round(x,1),lst))
+print(round_to_one([3.14159,2.71828,1.61803]))

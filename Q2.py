@@ -1,9 +1,5 @@
-def count_vowels(s):
-    vowels="aeiou"
-    s=s.lower()
-    count=0
-    for char in s:
-        if char in vowels:
-            count+=1
-        return count
-    print(count_vowels("Hello world"))
+import datetime
+def current_datetime():
+    return
+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print(current_datetime())

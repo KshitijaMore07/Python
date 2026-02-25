@@ -1,4 +1,3 @@
-def sum_numbers(*args):
-    return sum(args)
-print(sum_numbers(1,2,3))
-print(sum_numbers(10,20,30,40))
+starts_with_A=lambda s:s[0].lower()=='a'
+print(starts_with_A("Apple"))
+print(starts_with_A("Banana"))
