@@ -1,8 +1,6 @@
-import re
-date=input("Enter date (dd-mm-yyyy):")
-pattern=r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-[0-9]{4}$'
+with open("Myfile.txt","r")as f1, open("Newfile.txt","w")as f2:
+    content=f1.read()
+    f2.write(content)
 
-if re.match(pattern, date):
-    print("Valid Date")
-else:
-    print("Invalid Date")
+with open("Newfile.txt","r")as f2:
+    print(f2.read())

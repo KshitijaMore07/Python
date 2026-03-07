@@ -1,8 +1,6 @@
-import re
-pan=input("Enter PAN number:")
-pattern=r'^[A-Z]{5}[0-9]{4}[A-Z]$'
-
-if re.match(pattern, pan):
-    print("Valid PAN Number")
-else:
-    print("Invalid PAN Number")
+with open("Englishnotes.txt","r")as f:
+   text=f.read()
+   count=text.count("as")
+   print("Occurrences of 'as':",count)
+   
+    

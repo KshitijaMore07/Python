@@ -1,5 +1,6 @@
-import re
-sentence=input("Enter a sentence:")
-result=re.sub(r'\b(\w+)(\1\b)+',r'\1', sentence)
-
-print("After removing duplicates:",result)
+with open("Myfile.txt","r")as f:
+    lines=f.readlines()
+    if len(lines)>=5:
+        print("Line 5:",lines[4].strip())
+    else:
+        print("File has less than 5 lines.")

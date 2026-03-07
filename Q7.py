@@ -1,10 +1,3 @@
-import re
-
-msg=input("Enter chat message")
-
-hashtags=re.findall(r'#\w+',msg)
-
-mentions=re.findall(r'@\w+',msg)
-
-print("Hashtags:",hashtags)
-print("Mentions:",mentions)
+with open("demo.pdf","rb")as f1, open("demo.pdf","wb")as f2:
+    f2.write(f1.read())
+print("Binary file copied successfully.")
