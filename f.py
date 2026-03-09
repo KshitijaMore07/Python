@@ -1,5 +1,5 @@
-f=open("demo.txt","r")
-data=f.read()
-print(data)
-print(type(data))
-f.close()
+def fact(n):
+    if n<=0:
+        return
+    return(n+fact(n-1))
+print(fact)

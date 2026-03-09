@@ -1,13 +1,4 @@
-class Complex:
-    def __init__(self, real, img):
-        self.real=real
-        self.img=img
-
-    def showNumber(self):
-        print(self.real ,"i +", self.img,"j")
-
-num1=Complex(1,3)
-num1.showNumber()
-
-num2=Complex(4,6)
-num2.showNumber()
+a=8+2j;
+b=8+4j;
+result=a+b;
+print(f"{a}+{b}=",result)
