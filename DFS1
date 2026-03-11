@@ -1,0 +1,33 @@
+# DFS for Water Jug Problem
+
+max1 = 4
+max2 = 3
+target = 2
+
+visited = []
+
+stack = []
+stack.append((0,0))
+
+while len(stack) > 0:
+
+    a,b = stack.pop()
+    print(a,b)
+
+    if a == target or b == target:
+        print("Target reached")
+        break
+
+    if (a,b) not in visited:
+        visited.append((a,b))
+
+        stack.append((max1,b))
+        stack.append((a,max2))
+        stack.append((0,b))
+        stack.append((a,0))
+
+        transfer = min(a, max2-b)
+        stack.append((a-transfer,b+transfer))
+
+        transfer = min(b, max1-a)
+        stack.append((a+transfer,b-transfer))
