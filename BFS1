@@ -1,0 +1,33 @@
+# BFS for Water Jug Problem
+
+max1 = 4
+max2 = 3
+target = 2
+
+visited = []
+
+queue = []
+queue.append((0,0))
+
+while len(queue) > 0:
+
+    a,b = queue.pop(0)
+    print(a,b)
+
+    if a == target or b == target:
+        print("Target reached")
+        break
+
+    if (a,b) not in visited:
+        visited.append((a,b))
+
+        queue.append((max1,b))
+        queue.append((a,max2))
+        queue.append((0,b))
+        queue.append((a,0))
+
+        transfer = min(a, max2-b)
+        queue.append((a-transfer,b+transfer))
+
+        transfer = min(b, max1-a)
+        queue.append((a+transfer,b-transfer))
