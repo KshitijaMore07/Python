@@ -1,0 +1,24 @@
+# A* for 8 Puzzle (simple)
+
+start = [1,2,3,
+         4,0,6,
+         7,5,8]
+
+goal = [1,2,3,
+        4,5,6,
+        7,8,0]
+
+def heuristic(state):
+    h = 0
+    for i in range(9):
+        if state[i] != 0 and state[i] != goal[i]:
+            h = h + 1
+    return h
+
+print("Start State:", start)
+print("Heuristic Value:", heuristic(start))
+
+if heuristic(start) == 0:
+    print("Goal Reached")
+else:
+    print("Move tiles to reduce heuristic until goal state")
