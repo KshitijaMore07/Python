@@ -1,0 +1,41 @@
+# Simple Hill Climbing for Block World
+
+current = ["C","B","A"]
+goal = ["A","B","C"]
+
+def heuristic(state):
+    h = 0
+    for i in range(len(state)):
+        if state[i] != goal[i]:
+            h = h + 1
+    return h
+
+while True:
+
+    print("Current State:", current)
+
+    if current == goal:
+        print("Goal Reached")
+        break
+
+    best = current
+    best_h = heuristic(current)
+
+    for i in range(len(current)-1):
+
+        new = current.copy()
+        temp = new[i]
+        new[i] = new[i+1]
+        new[i+1] = temp
+
+        h = heuristic(new)
+
+        if h < best_h:
+            best = new
+            best_h = h
+
+    if best == current:
+        print("No better state")
+        break
+
+    current = best
