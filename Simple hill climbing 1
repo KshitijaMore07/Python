@@ -85,3 +85,60 @@ for i in range(len(current)-1):
     if heuristic(new) < heuristic(current):
         print("Move to Better State:", new)
         break
+
+
+
+
+
+
+import time
+
+current = ['D','C','B','A']
+goal = ['A','B','C','D']
+
+def heuristic(state):
+    h = 0
+    for i in range(len(state)):
+        if state[i] != goal[i]:
+            h = h + 1
+    return h
+
+while True:
+
+    print("Current State:", current)
+    print("Heuristic Value:", heuristic(current))
+    print()
+
+    time.sleep(1)
+
+    if current == goal:
+        print("Goal Reached")
+        break
+
+    # try swapping any two blocks
+    best = current
+    best_h = heuristic(current)
+
+    for i in range(len(current)):
+        for j in range(i+1, len(current)):
+
+            new = current.copy()
+
+            temp = new[i]
+            new[i] = new[j]
+            new[j] = temp
+
+            print("Neighbour:", new)
+            print("Heuristic:", heuristic(new))
+            print()
+
+            time.sleep(1)
+
+            if heuristic(new) < best_h:
+                best = new
+                best_h = heuristic(new)
+
+    print("Move to Better State:", best)
+    print()
+
+    current = best
