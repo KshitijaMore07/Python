@@ -1,4 +1,4 @@
-# Simple Hill Climbing for Block World
+import time
 
 current = ["C","B","A"]
 goal = ["A","B","C"]
@@ -13,6 +13,7 @@ def heuristic(state):
 while True:
 
     print("Current State:", current)
+    time.sleep(1)
 
     if current == goal:
         print("Goal Reached")
@@ -24,6 +25,7 @@ while True:
     for i in range(len(current)-1):
 
         new = current.copy()
+
         temp = new[i]
         new[i] = new[i+1]
         new[i+1] = temp
