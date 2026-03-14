@@ -1,0 +1,51 @@
+import time
+
+current = ['D','C','B','A']
+goal = ['A','B','C','D']
+
+def heuristic(state):
+    h = 0
+    for i in range(len(state)):
+        if state[i] != goal[i]:
+            h = h + 1
+    return h
+
+while True:
+
+    print("Current State:", current)
+    print("Heuristic Value:", heuristic(current))
+    print()
+
+    time.sleep(1)
+
+    if current == goal:
+        print("Goal Reached")
+        break
+
+    found = False
+
+    for i in range(len(current)-1):
+
+        new = current.copy()
+
+        temp = new[i]
+        new[i] = new[i+1]
+        new[i+1] = temp
+
+        print("Neighbour:", new)
+        print("Heuristic:", heuristic(new))
+        print()
+
+        time.sleep(1)
+
+        if heuristic(new) < heuristic(current):
+            current = new
+            found = True
+            print("Move to Better State:", current)
+            print("-------------------------")
+            time.sleep(1)
+            break
+
+    if found == False:
+        print("No better state found")
+        break
