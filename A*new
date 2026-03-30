@@ -1,0 +1,41 @@
+import time
+
+start = [2,3,0,1,6,4,8,7,5]
+goal  = [1,2,3,8,0,4,7,6,5]
+
+def h(s):
+    return sum(1 for i in range(9) if s[i] != 0 and s[i] != goal[i])
+
+open_list = [(start,0)]
+closed = []
+
+while open_list:
+
+    best = min(open_list, key=lambda x: x[1] + h(x[0]))
+    open_list.remove(best)
+
+    current, g = best
+
+    print("State:", current)
+    time.sleep(1)
+
+    if current == goal:
+        print("Goal Reached")
+        break
+
+    closed.append(current)
+
+    blank = current.index(0)
+    moves = [-3,3,-1,1]
+
+    for m in moves:
+
+        new_pos = blank + m
+
+        if 0 <= new_pos < 9:
+
+            new = current.copy()
+            new[blank], new[new_pos] = new[new_pos], new[blank]
+
+            if new not in closed:
+                open_list.append((new, g+1))
