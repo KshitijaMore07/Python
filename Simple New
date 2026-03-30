@@ -1,0 +1,35 @@
+import time
+
+current = ['D','C','B','A']
+goal = ['A','B','C','D']
+
+def h(s):
+    return sum(1 for i in range(len(s)) if s[i] != goal[i])
+
+while True:
+
+    print("Current:", current, "h=", h(current))
+    time.sleep(1)
+
+    if current == goal:
+        print("Goal Reached")
+        break
+
+    moved = False
+
+    for i in range(len(current)-1):
+
+        new = current.copy()
+        new[i], new[i+1] = new[i+1], new[i]
+
+        print("Neighbour:", new, "h=", h(new))
+        time.sleep(1)
+
+        if h(new) < h(current):
+            current = new
+            moved = True
+            break
+
+    if not moved:
+        print("No better state")
+        break
