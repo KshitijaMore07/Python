@@ -1,0 +1,35 @@
+import time
+
+max1, max2, target = 5, 3, 2
+
+visited = []
+queue = [(0,0)]
+
+while queue:
+
+    a,b = queue.pop(0)
+
+    if (a,b) in visited:
+        continue
+
+    visited.append((a,b))
+    print(a,b)
+    time.sleep(1)
+
+    if a == target or b == target:
+        print("Target reached")
+        break
+
+    new_states = [
+        (max1,b),(a,max2),(0,b),(a,0)
+    ]
+
+    transfer = min(a, max2-b)
+    new_states.append((a-transfer,b+transfer))
+
+    transfer = min(b, max1-a)
+    new_states.append((a+transfer,b-transfer))
+
+    for state in new_states:
+        if state not in visited and state not in queue:
+            queue.append(state)
