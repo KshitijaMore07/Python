@@ -1,1 +1,123 @@
 A web-based CryptArithmetic puzzle solver built using Constraint Satisfaction Problem (CSP) techniques and backtracking algorithm. This project allows users to input puzzles like SEND + MORE = MONEY and find valid digit assignments.
+🔐 CryptArithmetic Solver using CSP
+
+📌 Project Overview
+
+This project is a web-based CryptArithmetic puzzle solver built using the concept of Constraint Satisfaction Problem (CSP) from Artificial Intelligence.
+
+CryptArithmetic puzzles are mathematical problems where letters represent digits. The goal is to assign digits (0–9) to letters such that the arithmetic equation is valid.
+
+👉 Example:
+
+  SEND
++ MORE
+------
+ MONEY
+
+---
+
+🚀 Features
+
+- 🔢 Solve CryptArithmetic puzzles (e.g., SEND + MORE = MONEY)
+- ⚙️ Uses Backtracking Algorithm
+- 🧠 Implements Constraint Satisfaction Problem (CSP)
+- 🌐 Simple web interface for user input
+- ✅ Displays valid solutions clearly
+- ❌ Handles invalid cases gracefully
+
+---
+
+🛠️ Technologies Used
+
+- Frontend: HTML, CSS, JavaScript
+- Backend: Python (Flask) / PHP (optional as per implementation)
+- Algorithm: Backtracking + CSP
+
+---
+
+🧩 How It Works
+
+1. Extract all unique letters from the input equation
+2. Assign digits (0–9) to each letter
+3. Apply constraints:
+   - No two letters have the same digit
+   - Leading digit cannot be zero
+4. Use backtracking to try all possible combinations
+5. Check if the equation is satisfied
+6. Display the solution
+
+---
+
+📂 Project Structure
+
+cryptarithmetic-csp-solver/
+│
+├── static/           # CSS, JS files
+├── templates/        # HTML files
+├── app.py            # Backend logic (Flask)
+├── solver.py         # CSP algorithm implementation
+├── requirements.txt
+└── README.md
+
+---
+
+▶️ How to Run the Project
+
+Step 1: Clone Repository
+
+git clone https://github.com/your-username/cryptarithmetic-csp-solver.git
+cd cryptarithmetic-csp-solver
+
+Step 2: Install Dependencies
+
+pip install -r requirements.txt
+
+Step 3: Run Application
+
+python app.py
+
+Step 4: Open in Browser
+
+http://127.0.0.1:5000/
+
+---
+
+🧪 Example Input
+
+SEND + MORE = MONEY
+
+✅ Example Output
+
+S=9, E=5, N=6, D=7, M=1, O=0, R=8, Y=2
+
+---
+
+📚 Concepts Used
+
+- Artificial Intelligence (AI)
+- Constraint Satisfaction Problem (CSP)
+- Backtracking Algorithm
+- Search Techniques
+
+---
+
+🎯 Future Improvements
+
+- Add multiple puzzle support
+- Improve UI/UX
+- Add step-by-step solving visualization
+- Optimize performance using heuristics
+
+---
+
+👩‍💻 Author
+
+Kshitija More
+
+---
+
+⭐ Contribution
+
+Feel free to fork this repository and contribute!
+
+---
