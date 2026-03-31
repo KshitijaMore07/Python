@@ -1,0 +1,64 @@
+# KNN Algorithm (Safe Version)
+
+n = int(input("Enter number of data points: "))
+
+data = []
+
+# input data
+for i in range(n):
+    x = int(input("Enter x: "))
+    y = int(input("Enter y: "))
+    c = input("Enter class (A/B): ")
+    data.append((x,y,c))
+
+# new point
+px = int(input("Enter new point x: "))
+py = int(input("Enter new point y: "))
+
+k = int(input("Enter value of k: "))
+
+dist = []
+
+# calculate distance
+for i in range(n):
+
+    dx = data[i][0] - px
+    dy = data[i][1] - py
+
+    d = (dx*dx + dy*dy) ** 0.5
+
+    dist.append((d, data[i][2]))
+
+
+# manual sorting (no built-in sort)
+for i in range(n):
+    for j in range(n-i-1):
+
+        if dist[j][0] > dist[j+1][0]:
+
+            temp = dist[j]
+            dist[j] = dist[j+1]
+            dist[j+1] = temp
+
+
+# counting classes
+countA = 0
+countB = 0
+
+for i in range(k):
+
+    if dist[i][1] == 'A':
+        countA = countA + 1
+    else:
+        countB = countB + 1
+
+
+# output
+print("\nNearest Neighbors:")
+for i in range(k):
+    print(dist[i])
+
+if countA > countB:
+    print("Class = A")
+else:
+    print("Class = B")
