@@ -1,0 +1,109 @@
+import time
+
+n = int(input("Enter number of data points: "))
+
+data = []
+
+# input data
+for i in range(n):
+    x = int(input("Enter value: "))
+    c = input("Enter class (A/B): ")
+    data.append((x,c))
+
+# new value
+px = int(input("Enter new value: "))
+
+voteA = 0
+voteB = 0
+
+print("\nProcessing Trees...\n")
+time.sleep(1)
+
+# 🌳 Tree 1
+print("Tree 1 (<= px)")
+time.sleep(1)
+
+countA = 0
+countB = 0
+
+for i in range(n):
+    if data[i][0] <= px:
+        if data[i][1] == 'A':
+            countA += 1
+        else:
+            countB += 1
+
+print("A =", countA, "B =", countB)
+time.sleep(1)
+
+if countA > countB:
+    print("Tree 1 Vote: A\n")
+    voteA += 1
+else:
+    print("Tree 1 Vote: B\n")
+    voteB += 1
+
+time.sleep(1)
+
+# 🌳 Tree 2
+print("Tree 2 (>= px)")
+time.sleep(1)
+
+countA = 0
+countB = 0
+
+for i in range(n):
+    if data[i][0] >= px:
+        if data[i][1] == 'A':
+            countA += 1
+        else:
+            countB += 1
+
+print("A =", countA, "B =", countB)
+time.sleep(1)
+
+if countA > countB:
+    print("Tree 2 Vote: A\n")
+    voteA += 1
+else:
+    print("Tree 2 Vote: B\n")
+    voteB += 1
+
+time.sleep(1)
+
+# 🌳 Tree 3
+print("Tree 3 (All Data)")
+time.sleep(1)
+
+countA = 0
+countB = 0
+
+for i in range(n):
+    if data[i][1] == 'A':
+        countA += 1
+    else:
+        countB += 1
+
+print("A =", countA, "B =", countB)
+time.sleep(1)
+
+if countA > countB:
+    print("Tree 3 Vote: A\n")
+    voteA += 1
+else:
+    print("Tree 3 Vote: B\n")
+    voteB += 1
+
+time.sleep(1)
+
+# Final Result
+print("Final Voting...")
+time.sleep(1)
+
+print("Total Votes -> A:", voteA, "B:", voteB)
+time.sleep(1)
+
+if voteA > voteB:
+    print("Final Class = A")
+else:
+    print("Final Class = B")
