@@ -1,0 +1,89 @@
+import time
+
+# number of data points
+n = int(input("Enter number of data points: "))
+
+x = []
+y = []
+
+# input values
+i = 0
+while i < n:
+    xi = int(input("Enter x: "))
+    yi = int(input("Enter y: "))
+    x.append(xi)
+    y.append(yi)
+    i = i + 1
+
+# Step 1: Calculate X^2 and XY
+print("\nStep 1: Table\n")
+print("X   Y   X^2   XY")
+
+sum_x = 0
+sum_y = 0
+sum_x2 = 0
+sum_xy = 0
+
+i = 0
+while i < n:
+    x2 = x[i] * x[i]
+    xy = x[i] * y[i]
+
+    print(x[i], " ", y[i], " ", x2, " ", xy)
+
+    sum_x = sum_x + x[i]
+    sum_y = sum_y + y[i]
+    sum_x2 = sum_x2 + x2
+    sum_xy = sum_xy + xy
+
+    i = i + 1
+
+time.sleep(1)
+
+print("\nSum:")
+print("ΣX =", sum_x)
+print("ΣY =", sum_y)
+print("ΣX^2 =", sum_x2)
+print("ΣXY =", sum_xy)
+
+time.sleep(1)
+
+# Step 2: Calculate slope (B1)
+print("\nStep 2: Slope Calculation\n")
+
+num = n * sum_xy - sum_x * sum_y
+den = n * sum_x2 - sum_x * sum_x
+
+print("B1 = (n*ΣXY - ΣX*ΣY) / (n*ΣX^2 - (ΣX)^2)")
+print("B1 =", num, "/", den)
+
+b1 = num / den
+
+print("B1 =", b1)
+
+time.sleep(1)
+
+# Step 3: Calculate intercept (B0)
+print("\nStep 3: Intercept Calculation\n")
+
+b0 = (sum_y - b1 * sum_x) / n
+
+print("B0 = (ΣY - B1*ΣX) / n")
+print("B0 =", b0)
+
+time.sleep(1)
+
+# Step 4: Equation
+print("\nStep 4: Regression Equation\n")
+
+print("Y = ", b0, "+", b1, "X")
+
+time.sleep(1)
+
+# Prediction
+px = int(input("\nEnter value of X to predict Y: "))
+
+py = b0 + b1 * px
+
+print("\nFinal Result:")
+print("Y =", py)
