@@ -1,0 +1,7 @@
+while True:
+    name = input("Enter name (type 'exit' to stop): ")
+    
+    if name == "exit":
+        break
+    
+    print("Hello", name)
