@@ -1,0 +1,22 @@
+from itertools import permutations
+
+digits = range(10)
+
+# Variables: O, N, E, T, W
+for perm in permutations(digits, 5):
+    O, N, E, T, W = perm
+
+    # Leading digit constraint
+    if O == 0 or T == 0:
+        continue
+
+    # Form numbers
+    ONE = 100*O + 10*N + E
+    TWO = 100*T + 10*W + O
+
+    # Check equation
+    if ONE + ONE == TWO:
+        print("Solution Found:")
+        print(f"O={O}, N={N}, E={E}, T={T}, W={W}")
+        print(f"{ONE} + {ONE} = {TWO}")
+        break
