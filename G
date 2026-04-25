@@ -1,0 +1,8 @@
+const speak = (text) => {
+  const speech = new SpeechSynthesisUtterance();
+  speech.text = text;
+  speech.lang = "mr-IN";
+  window.speechSynthesis.speak(speech);
+};
+
+export default speak;
