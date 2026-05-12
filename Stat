@@ -1,0 +1,19 @@
+from statistics import mean, median, mode
+
+# Input data
+data = [2, 4, 4, 6, 8]
+
+# Calculate Mean
+avg = mean(data)
+
+# Calculate Median
+med = median(data)
+
+# Calculate Mode
+mod = mode(data)
+
+# Display results
+print("Data:", data)
+print("Mean:", avg)
+print("Median:", med)
+print("Mode:", mod)
