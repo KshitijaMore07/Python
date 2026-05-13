@@ -1,0 +1,6 @@
+if avg > med:
+    print("Right-Skewed Distribution")
+elif avg < med:
+    print("Left-Skewed Distribution")
+else:
+    print("Symmetrical Distribution")
