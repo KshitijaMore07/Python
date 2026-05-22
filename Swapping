@@ -1,0 +1,15 @@
+name = input("Enter your name: ")
+print("Hello", name)
+
+a = input("Enter first value: ")
+b = input("Enter second value: ")
+
+print("Before swapping:")
+print("a =", a)
+print("b =", b)
+
+a, b = b, a
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
