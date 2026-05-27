@@ -1,0 +1,16 @@
+# Q3) DataFrame of Students and Marks
+
+import pandas as pd
+
+# Create DataFrame
+data = {
+    'Name': ['Amit', 'Priya', 'Rahul', 'Sneha', 'Kiran',
+             'Neha', 'Rohit', 'Pooja', 'Ajay', 'Meena'],
+    
+    'Marks': [78, 85, 90, 67, 88,
+              76, 92, 81, 74, 89]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
