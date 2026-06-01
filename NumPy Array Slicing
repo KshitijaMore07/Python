@@ -1,0 +1,23 @@
+ NumPy Array Slicing
+
+import numpy as np
+
+# Initialize 3x3 array
+arr = np.array([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]])
+
+print("Original Array:")
+print(arr)
+
+# Extract first row
+print("\nFirst Row:")
+print(arr[0])
+
+# Extract last column
+print("\nLast Column:")
+print(arr[:, -1])
+
+# Extract 2x2 sub-array from center
+print("\n2x2 Sub-array:")
+print(arr[0:2, 1:3])
