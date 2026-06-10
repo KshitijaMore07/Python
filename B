@@ -1,0 +1,16 @@
+import pandas as pd
+
+A = pd.DataFrame({
+    'id': [1, 2, 3, 4],
+    'name': ['Joe', 'Henry', 'Sam', 'Max']
+})
+
+B = pd.DataFrame({
+    'id': [1, 3]
+})
+
+result = A.merge(B, on='id', how='left', indicator=True)
+
+result = result[result['_merge'] == 'left_only']
+
+print(result[['id', 'name']])
