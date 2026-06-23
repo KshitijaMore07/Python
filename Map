@@ -1,0 +1,14 @@
+<div className="food-container">
+
+{
+foods.map((food,index)=>(
+
+<FoodCard 
+key={index}
+food={food}
+/>
+
+))
+}
+
+</div>
