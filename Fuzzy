@@ -1,0 +1,101 @@
+def fuzzy_cartesian_product():
+    a_input = input("Enter Set A values: ")
+    b_input = input("Enter Set B values: ")
+
+    A = [float(x) for x in a_input.split()]
+    B = [float(x) for x in b_input.split()]
+
+    print("\nCartesian Product Result Matrix:")
+    for a in A:
+        row = []
+        for b in B:
+            row.append(min(a, b))
+        print(row)
+
+
+def fuzzy_operations():
+    rows = int(input("Enter matrix rows count: "))
+
+    print("\nEnter Matrix R elements:")
+    R = []
+    for i in range(rows):
+        R.append([float(x) for x in input(f"Row {i+1}: ").split()])
+
+    print("\nEnter Matrix S elements:")
+    S = []
+    for i in range(rows):
+        S.append([float(x) for x in input(f"Row {i+1}: ").split()])
+
+    print("\n1. Union (R U S):")
+    for i in range(rows):
+        union_row = []
+        for j in range(len(R[0])):
+            union_row.append(max(R[i][j], S[i][j]))
+        print(union_row)
+
+    print("\n2. Intersection (R ∩ S):")
+    for i in range(rows):
+        inter_row = []
+        for j in range(len(R[0])):
+            inter_row.append(min(R[i][j], S[i][j]))
+        print(inter_row)
+
+    print("\n3. Complement of R:")
+    for i in range(rows):
+        comp_row = []
+        for j in range(len(R[0])):
+            comp_row.append(round(1 - R[i][j], 2))
+        print(comp_row)
+
+
+def fuzzy_composition():
+    r_rows = int(input("Enter Matrix R rows: "))
+
+    print("Enter Matrix R:")
+    R = [[float(x) for x in input(f"Row {i+1}: ").split()]
+         for i in range(r_rows)]
+
+    s_rows = int(input("Enter Matrix S rows: "))
+
+    print("Enter Matrix S:")
+    S = [[float(x) for x in input(f"Row {i+1}: ").split()]
+         for i in range(s_rows)]
+
+    cols_S = len(S[0])
+
+    print("\n1. Max-Min Composition (R o S):")
+    for i in range(len(R)):
+        res_row = []
+        for j in range(cols_S):
+            mins = []
+            for k in range(len(S)):
+                mins.append(min(R[i][k], S[k][j]))
+            res_row.append(max(mins))
+        print(res_row)
+
+    print("\n2. Max-Product Composition (R o S):")
+    for i in range(len(R)):
+        res_row = []
+        for j in range(cols_S):
+            prods = []
+            for k in range(len(S)):
+                prods.append(round(R[i][k] * S[k][j], 2))
+            res_row.append(max(prods))
+        print(res_row)
+
+
+print("--- FUZZY CALCULATOR ---")
+print("1: Cartesian Product (A x B)")
+print("2: Union, Intersection, Complement (R, S)")
+print("3: Composition Max-Min & Max-Product")
+
+ch = input("\nChoose option (1/2/3): ")
+
+if ch == '1':
+    fuzzy_cartesian_product()
+elif ch == '2':
+    fuzzy_operations()
+elif ch == '3':
+    fuzzy_composition()
+else:
+    print("Invalid Selection!")
