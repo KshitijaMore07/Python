@@ -1,70 +1,126 @@
-import numpy as np
+# FUZZY RELATION EQUIVALENCE CHECK
 
-# Matrix input
-n = int(input("Enter matrix size: "))
+# Max-Min Composition
+def composition(R):
+    n = len(R)
 
-R = []
-
-print("Enter matrix rows:")
-for i in range(n):
-    row = list(map(float, input().split()))
-    R.append(row)
-
-R = np.array(R)
-
-print("\nRelation Matrix:")
-print(R)
-
-
-# 1. Reflexive
-def reflexive(R):
-    return all(R[i][i] == 1 for i in range(len(R)))
-
-
-# 2. Symmetric
-def symmetric(R):
-    return np.array_equal(R, R.T)
-
-
-# 3. Max-Min Composition
-def max_min(R1, R2):
-    n = len(R1)
-    C = np.zeros((n, n))
+    C = []
 
     for i in range(n):
+        row = []
+
         for j in range(n):
-            values = []
+
+            maximum = 0
 
             for k in range(n):
-                values.append(min(R1[i][k], R2[k][j]))
 
-            C[i][j] = max(values)
+                # Find minimum
+                if R[i][k] < R[k][j]:
+                    minimum = R[i][k]
+                else:
+                    minimum = R[k][j]
+
+                # Find maximum
+                if minimum > maximum:
+                    maximum = minimum
+
+            row.append(maximum)
+
+        C.append(row)
 
     return C
 
 
-# 4. Transitive
-def transitive(R):
-    RR = max_min(R, R)
+# Check Reflexive
+def reflexive(R):
+    n = len(R)
 
-    return np.all(RR <= R)
+    for i in range(n):
+        if R[i][i] != 1:
+            return False
+
+    return True
+
+
+# Check Symmetric
+def symmetric(R):
+    n = len(R)
+
+    for i in range(n):
+        for j in range(n):
+
+            if R[i][j] != R[j][i]:
+                return False
+
+    return True
+
+
+# Check Transitive
+def transitive(R):
+    C = composition(R)
+    n = len(R)
+
+    for i in range(n):
+        for j in range(n):
+
+            if C[i][j] > R[i][j]:
+                return False
+
+    return True
+
+
+# ---------------- MAIN PROGRAM ----------------
+
+print("FUZZY RELATION EQUIVALENCE CHECKER")
+
+n = int(input("Enter matrix size: "))
+
+R = []
+
+print("Enter matrix values:")
+
+for i in range(n):
+
+    row = []
+
+    for j in range(n):
+        x = float(input("Enter value: "))
+        row.append(x)
+
+    R.append(row)
+
+
+# Display Matrix
+print("\nRelation Matrix:")
+
+for i in range(n):
+    print(R[i])
 
 
 # Check properties
-print("\n--- Properties ---")
+r = reflexive(R)
+s = symmetric(R)
+t = transitive(R)
 
-print("Reflexive :", reflexive(R))
-print("Symmetric :", symmetric(R))
-print("Transitive:", transitive(R))
+print("\nProperties:")
+
+print("Reflexive :", r)
+print("Symmetric :", s)
+print("Transitive:", t)
 
 
 # Equivalence Relation
-if reflexive(R) and symmetric(R) and transitive(R):
-    print("\nIt is an Equivalence Relation.")
+if r == True and s == True and t == True:
+    print("\nRelation is an Equivalence Relation.")
 else:
-    print("\nIt is NOT an Equivalence Relation.")
+    print("\nRelation is NOT an Equivalence Relation.")
 
 
 # Max-Min Composition
-print("\n--- Max-Min Composition R o R ---")
-print(max_min(R, R))
+print("\nMax-Min Composition (R o R):")
+
+C = composition(R)
+
+for i in range(n):
+    print(C[i])
