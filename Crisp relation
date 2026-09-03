@@ -1,0 +1,70 @@
+import numpy as np
+
+# Matrix input
+n = int(input("Enter matrix size: "))
+
+R = []
+
+print("Enter matrix rows:")
+for i in range(n):
+    row = list(map(float, input().split()))
+    R.append(row)
+
+R = np.array(R)
+
+print("\nRelation Matrix:")
+print(R)
+
+
+# 1. Reflexive
+def reflexive(R):
+    return all(R[i][i] == 1 for i in range(len(R)))
+
+
+# 2. Symmetric
+def symmetric(R):
+    return np.array_equal(R, R.T)
+
+
+# 3. Max-Min Composition
+def max_min(R1, R2):
+    n = len(R1)
+    C = np.zeros((n, n))
+
+    for i in range(n):
+        for j in range(n):
+            values = []
+
+            for k in range(n):
+                values.append(min(R1[i][k], R2[k][j]))
+
+            C[i][j] = max(values)
+
+    return C
+
+
+# 4. Transitive
+def transitive(R):
+    RR = max_min(R, R)
+
+    return np.all(RR <= R)
+
+
+# Check properties
+print("\n--- Properties ---")
+
+print("Reflexive :", reflexive(R))
+print("Symmetric :", symmetric(R))
+print("Transitive:", transitive(R))
+
+
+# Equivalence Relation
+if reflexive(R) and symmetric(R) and transitive(R):
+    print("\nIt is an Equivalence Relation.")
+else:
+    print("\nIt is NOT an Equivalence Relation.")
+
+
+# Max-Min Composition
+print("\n--- Max-Min Composition R o R ---")
+print(max_min(R, R))
