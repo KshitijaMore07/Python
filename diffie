@@ -1,0 +1,24 @@
+p = int(input("Enter prime number p: "))
+g = int(input("Enter primitive root g: "))
+
+a = int(input("Enter private key of Alice: "))
+b = int(input("Enter private key of Bob: "))
+
+# Public keys
+A = (g ** a) % p
+B = (g ** b) % p
+
+print("Alice public key:", A)
+print("Bob public key:", B)
+
+# Shared secret key
+key1 = (B ** a) % p
+key2 = (A ** b) % p
+
+print("Alice shared key:", key1)
+print("Bob shared key:", key2)
+
+if key1 == key2:
+    print("Key exchange successful!")
+else:
+    print("Key exchange failed!")
