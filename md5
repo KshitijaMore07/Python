@@ -1,0 +1,9 @@
+import hashlib
+
+text = input("Enter text: ")
+
+md5 = hashlib.md5(text.encode())
+sha = hashlib.sha256(text.encode())
+
+print("MD5:", md5.hexdigest())
+print("SHA:", sha.hexdigest())
