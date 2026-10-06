@@ -1,0 +1,12 @@
+import cryptocode
+
+text = input("Enter text: ")
+key = input("Enter encryption key: ")
+
+encrypted = cryptocode.encrypt(text, key)
+
+print("Encrypted text:", encrypted)
+
+decrypted = cryptocode.decrypt(encrypted, key)
+
+print("Decrypted text:", decrypted)
