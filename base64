@@ -1,0 +1,13 @@
+import base64
+
+text = input("Enter text: ")
+
+# Encoding
+encoded = base64.b64encode(text.encode())
+
+print("Encoded:", encoded.decode())
+
+# Decoding
+decoded = base64.b64decode(encoded)
+
+print("Decoded:", decoded.decode())
