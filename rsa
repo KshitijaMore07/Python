@@ -1,0 +1,18 @@
+import rsa
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+# Generate public and private keys
+public_key, private_key = rsa.newkeys(512)
+
+# Encrypt password
+encrypted = rsa.encrypt(password.encode(), public_key)
+
+# Decrypt password
+decrypted = rsa.decrypt(encrypted, private_key).decode()
+
+print("\nUsername:", username)
+print("Password:", password)
+print("Encrypted password:", encrypted)
+print("Decrypted password:", decrypted)
