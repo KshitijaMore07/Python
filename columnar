@@ -1,0 +1,27 @@
+text = input("Enter text: ")
+key = input("Enter key: ")
+
+columns = len(key)
+
+# Add X to make complete rows
+while len(text) % columns != 0:
+    text += "X"
+
+rows = len(text) // columns
+
+matrix = []
+
+for i in range(rows):
+    matrix.append(list(text[i * columns:(i + 1) * columns]))
+
+result = ""
+
+# Get column positions and sort them according to key letters
+column_order = sorted(range(columns), key=lambda i: key[i])
+
+# Read columns according to sorted key
+for col in column_order:
+    for row in range(rows):
+        result += matrix[row][col]
+
+print("Encrypted text:", result)
