@@ -1,0 +1,30 @@
+text = input("Enter text: ")
+rails = int(input("Enter number of rails: "))
+
+if rails <= 0:
+    print("Number of rails must be greater than 0")
+
+elif rails == 1:
+    print("Encrypted text:", text)
+
+else:
+    rail = [""] * rails
+    row = 0
+    direction = 1
+
+    for ch in text:
+        rail[row] += ch
+
+        if row == 0:
+            direction = 1
+        elif row == rails - 1:
+            direction = -1
+
+        row += direction
+
+    result = ""
+
+    for r in rail:
+        result += r
+
+    print("Encrypted text:", result)
